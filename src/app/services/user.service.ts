@@ -18,9 +18,9 @@ constructor(
     super(config, authService, http);
   }
 
-list(): Observable<User[]> {
-    return this.get('user/users');
-}
+    list(): Observable<User[]> {
+        return this.get('user/users');
+    }
 
   create(name: string, lastname: string, image: string) {
     return this.post('user/users', { name, lastname, image }).map(loginResponse => {
