@@ -1,24 +1,45 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-            data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
             aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">COSW Angular4</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a class="nav-link" routerLinkActive="/" routerLink="/">Home</a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a class="nav-link" routerLinkActive="/tasks" routerLink="/tasks">Tasks</a>
             </li>
-            <li class="nav-item">
+            <li *ngIf="isLoggedIn()" class="nav-item">
                 <a class="nav-link" routerLinkActive="/edit" routerLink="/edit">Edit</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLinkActive="/users" routerLink="/users">Users</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a class="nav-link" routerLinkActive="/userEdit" routerLink="/userEdit">Edit Users</a>
+            </li>
+            <li *ngIf="isLoggedIn()" class="nav-item">
+                <a href="#" class="nav-link" (click)="signOut()">(Sign Out)</a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class=""><a id="idNombreUsu"></a></li>
+            <li><div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" >Search</button>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
 </nav>
+
+
 
 <div class="container">
     <router-outlet></router-outlet>
