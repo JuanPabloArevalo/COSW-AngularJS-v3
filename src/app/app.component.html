@@ -30,13 +30,32 @@
             <li><div class="input-group">
                     <input type="text" class="form-control" placeholder="Search">
                     <div class="input-group-btn">
-                        <button class="btn btn-default">Search</button>
+                        <button class="btn btn-default" (click)="open(content)">Search</button>
                     </div>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>This feature is not implemented yet. Sorry for the inconvenience</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-light" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+
 
 
 
