@@ -21,6 +21,11 @@ constructor(
     list(): Observable<User[]> {
         return this.get('user/users');
     }
+    
+    
+    findByEmail(email): Observable<User> {
+        return this.get('user/'+email);
+    }
 
   create(name: string, lastname: string, image: string) {
     return this.post('user/users', { name, lastname, image }).map(loginResponse => {
